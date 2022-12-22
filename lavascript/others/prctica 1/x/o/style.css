@@ -1,0 +1,18 @@
+.intro {
+    display: grid;
+    width: 300px;
+    height: 300px;
+    border:  2px black solid;
+    margin: 0 auto;
+    margin-top: 100px;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 33% 33% 33%;
+}
+.box {
+    width: 98px;
+    height: 98px;
+    border: 2px black solid;
+}
+svg {
+    margin: 30px;
+}

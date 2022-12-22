@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #gameArea {
+        width: 90vmin;
+        height: 90vmin;
+        display: flex;
+        flex-wrap: wrap;
+        outline: 1px solid black;
+
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      #gameArea .box {
+        height: 20%;
+        width: 20%;
+        outline: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="gameArea"></div>
+    <h2>Points: <span id="points">0</span></h2>
+    <h2>Health: <span id="health">5</span></h2>
+    <h2>Time: <span id="time"></span></h2>
+  </body>
+  <script>
+    var isGameRunning = true;
+    var timeRemaining = 10;
+    var healthRemaining = 5;
+    var points = 0;
+
+    var pointSpan = document.getElementById("points");
+    var healthSpan = document.getElementById("health");
+    var timeSpan = document.getElementById("time");
+    var gameArea = document.getElementById("gameArea");
+
+    // add boxes to game area
+    for (var x = 0; x < 25; x++) {
+      gameArea.innerHTML += `<div class="box"></div>`;
+    }
+
+    // select boxes and add click listener
+    var boxes = document.getElementsByClassName("box");
+    for (var box of boxes) {
+      box.addEventListener("click", function (e) {
+        if (event.target.style.backgroundColor === "red") {
+          event.target.style.backgroundColor = "";
+          pointSpan.innerHTML = points;
+        }
+      });
+    }
+
+    // start the countdown timer
+    var timeInterval = setInterval(function () {
+      timeRemaining--;
+      timeSpan.innerHTML = timeRemaining;
+      if (timeRemaining < 1) {
+        clearInterval(timeInterval);
+        clearInterval(gameInterval);
+        alert("YOU WON!");
+      }
+    }, 1000);
+
+    // start the game
+    var gameInterval = setInterval(function () {
+      makeMole();
+    }, 500);
+
+    function randomNumber(x) {
+      return Math.floor(Math.random() * x);
+    }
+
+    function makeMole() {
+      var emptyBoxes = [];
+      for (var box of boxes) {
+        if (box.style.backgroundColor != "red") {
+          emptyBoxes.push(box);
+        }
+      }
+      var num = randomNumber(emptyBoxes.length);
+      var emptyBox = emptyBoxes[num];
+      emptyBox.style.backgroundColor = "red";
+
+      setTimeout(function () {
+        if (emptyBox.style.backgroundColor === "red" && isGameRunning) {
+          console.log("lose 1 health");
+          emptyBox.style.backgroundColor = "";
+          healthRemaining--;
+          healthSpan.innerHTML = healthRemaining;
+          if (healthRemaining < 1) {
+            clearInterval(gameInterval);
+            clearInterval(timeInterval);
+            alert("YOU LOSE");
+            isGameRunning = false;
+          }
+        }
+      }, 3000);
+    }
+  </script>
+</html>
+</html>

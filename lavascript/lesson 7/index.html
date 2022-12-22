@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" id="hour">
+    <button type="button" id="plus">+</button>
+    <input type="number" id="minut">
+    <button type="button" id="ravno">=</button>
+    <div id="otvet"></div>
+    <script>
+        var but1 = document.getElementById("plus");
+        var but = document.getElementById("ravno");
+        var text = document.getElementById("otvet");
+        var hour = document.getElementById("hour");
+        var minut = document.getElementById("minut");
+
+        function add() {
+            var hourValue = +hour.value;
+            console.log(hourValue);
+            var minutValue = +minut.value;
+            console.log(minutValue);
+            console.log(hourValue + minutValue)
+            text.innerHTML = hourValue + minutValue;
+        }
+
+        but.addEventListener("click", add);
+        but1.addEventListener("click", add);</script>
+</body>
+
+</html>

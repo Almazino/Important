@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <div class="intro">
+        <div class="box" id="a1"></div>
+        <div class="box" id="a2"></div>
+    </div>
+    <script>
+        var back = document.getElementById("a1");
+        back.addEventListener("click", dot());
+        var back = document.getElementById("a2");
+        back.addEventListener("click", dot());
+        function dot() {
+            back.innerHTML = `<!doctype html>
+<svg viewBox="113.636 73.122 39.526 37.55" width="39.526" height="37.55">
+  <ellipse stroke: rgb(0, 0, 0);" stroke-width="5px"; cx="133.399" cy="91.897" rx="19.763" ry="18.775"></ellipse>
+</svg>`
+        } function dot2() {
+            back.innerHTML = ``
+        }
+    </script>
+</body>
+
+</html>
+Z

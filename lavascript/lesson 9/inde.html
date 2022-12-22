@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="userInput" />
+    <button id="click">Click me</button>
+    <h3>Location:</h3>
+    <h4 id="city">a</h4>
+    <h3>Temperature:</h3>
+    <h4 id="temp">b</h4>
+    <h3>Weather:</h3>
+    <h4 id="weather">c</h4>
+    <script>
+        var lol = document.getElementById("userInput")
+        var but = document.getElementById("click")
+        var text1= document.getElementById("city")
+        var text2= document.getElementById("temp")
+        var text3= document.getElementById("weather")
+        but.addEventListener("click", function () {
+            var url = `https://api.openweathermap.org/data/2.5/weather?q=${lol.value}&appid=cd4d959621223f2ffc0a82dc965f9194`
+            fetch(url)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    console.log(data)
+                    text1.innerHTML=data.id
+                    text2.innerHTML=data.main.temp
+                    text3.innerHTML=data.weather[0].description
+                });
+        })
+    </script>
+</body>
+
+</html>

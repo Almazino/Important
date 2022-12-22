@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Таймер на JavaScript</title>
+</head>
+
+<body>
+    <input type="text" name="time" id="time">
+    <button id="button">Запустить</button>
+    <div id="timer"></div>
+    <script src="script.js">
+        let timerInput = document.getElementById("time");
+        let buttonRun = document.getElementById("button")
+        let timerShow = document.getElementById("timer");
+
+        buttonRun.addEventListener('click', function () {
+            timeMinut = parseInt(timerInput.value) * 60
+        })
+
+        timer = setInterval(function () {
+            seconds = timeMinut % 60
+            minutes = timeMinut / 60 % 60
+            hour = timeMinut / 60 / 60 % 60
+            if (timeMinut <= 0) {
+                clearInterval(timer);
+                alert("finish");
+            } else {
+                let strTimer = `${Math.trunc(hour)}:${Math.trunc(minutes)}:${seconds}`;
+                timerShow.innerHTML = strTimer;
+            }
+            --timeMinut;
+        }, 1000)
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+                }
+    </style>
+</head>
+<body>
+    <h1>Events</h1>
+    <button type="button" id="but">click me pls</button>
+    <div id="box" class="box"></div>
+    <script>
+        var buttons=document.getElementById("but");
+        var exemple=document.getElementById("box");
+        buttons.addEventListener("mouseover",function () {
+            exemple.style.backgroundColor="black";
+        })
+        buttons.addEventListener("mouseout",function () {
+            exemple.style.backgroundColor="white";
+        })
+    </script>
+    <input type="text" id="text">
+    <button id="but2">add</button>
+    <h3 id="tar"></h3>
+    <script>
+        var intro=document.getElementById("text")
+        var buto=document.getElementById("but2")
+        var text=document.getElementById("tar")
+        buto.addEventListener("click",function () {
+            text.innerHTML+=intro.value+"<br>"
+        })
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .box {
+        height: 10vh;
+        width: 10%;
+        outline: 1px solid black;
+      }
+    </style>
+  </head>
+  <body></body>
+  <script>
+    // we are making a for loop to do something 100 times
+    for (var x = 0; x < 100; x++) {
+      // We are making the CSS for background color
+      // The color is using RGB
+      // RGB uses numbers for color vibrancy
+      // the numbers changes depending on which box it is
+      var bgColor = `background-color: rgb(${255 - 2.55 * x},0,${2.55 * x})`;
+      //   We are making a div with class box
+      //  It has a in-line style, made with javascript
+      // It has a "data" property, that stores a number
+      var div = `<div class="box" data-num="${x}" style="${bgColor}"></div>`;
+      //   Add this box to the page
+      document.body.innerHTML += div;
+    }
+
+    // Boxes are on the page, but we need to select them. To add listeners!
+    var boxes = document.getElementsByClassName("box");
+
+    // Color history is an object that stores the information in the boxes (the box color)
+    // {
+    //   13: "rgb(0,0,50)",
+    //   14: "rgb(0,0,60)",
+    // }
+    var colorHistory = {};
+
+    // for of loop over all the box elements
+    for (var box of boxes) {
+      // add a click listener to each element
+      box.addEventListener("click", function (event) {
+        // Access the number of the box 0-99
+        var number = event.target.dataset.num;
+
+        // Check the background color to see if it is white
+        if (event.target.style.backgroundColor === "white") {
+          // it is white! lets check the color history to see what color it used to be.
+          var color = colorHistory[number];
+          // Make the box the old color again!
+          event.target.style.backgroundColor = color;
+        } else {
+          //   colorhistory is an object
+          //   We will store, in the box number index, that background color
+          colorHistory[number] = event.target.style.backgroundColor;
+          // set the box to white, now that we have stored the background color
+          event.target.style.backgroundColor = "white";
+        }
+      });
+    }
+  </script>
+</html> -->

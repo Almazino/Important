@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="code.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body> <!-- <h2>red if odd, blue if even</h2>
+    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, error?</h1>
+    <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, consectetur.</h1>
+    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, delectus!</h1>
+    <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat, vitae.</h1>
+    <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati, aut.</h1>
+    <script>
+        var elemenets = document.getElementsByTagName("h1")
+        for (let x = 0; x < elemenets.length; x++) {
+            if (x % 2 == 0) {
+                elemenets[x].style.backgroundColor = "blue";
+            } else {
+                elemenets[x].style.backgroundColor = "red";
+            }
+        }
+    </script>
+    <h1 id="target"></h1>
+    <h2 class="red">class is red</h2>
+    <h3>tag is h3</h3>
+    <script>
+        target.innerHTML = "Almaz is not target";
+        target.style.color = "green";
+        var red = document.getElementsByClassName("red");
+        red[0].style.color = "red";
+        var d = document.getElementsByTagName("h3");
+        d[0].style.color = "lightblue"
+        d[0].style.fontSize = "100px";
+        
+    </script>
+    <table class="chess">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>12</td>
+            <td>15</td>
+            <td>14</td>
+            <td>15</td>
+        </tr>
+    </table>
+    <script>
+        var elemenets = document.getElementsByTagName("td")
+        for (let x = 0; x < elemenets.length; x++) {
+            if (x % 2 == 0) {
+                elemenets[x].style.backgroundColor = "black";
+                elemenets[x].style.color = "white";
+            } else {
+                elemenets[x].style.backgroundColor = "white";
+            }
+            elemenets[x].style.width="50px"
+            elemenets[x].style.height="50px"
+        }
+    </script>
+    <script>
+        for (var x = 0; x < 100; x++) {
+            document.body.innerHTML += `<button>${x}</button>`;
+        }
+      </script>
+    -->
+    <script>
+        function appendCard(title,text) {
+            var card =`<div class="card">
+                <h1>${title}</h1>
+                <p>${text}</p>
+                </div>`;
+            document.body.innerHTML+=card;
+        }
+        // appendCard("lorem","ghsfdjghfdjhgghlkdfg")
+        // appendCard("lorem","ghsfdjghfdjhgghlkdfg")
+        // appendCard("lorem","ghsfdjghfdjhgghlkdfg")
+        // appendCard("lorem","ghsfdjghfdjhgghlkdfg")
+        // appendCard("lorem","ghsfdjghfdjhgghlkdfg")
+        var cardData =[
+            {title:"Zintis",text:"is teacher"},
+            {title:"Almaz",text:"is student"},
+            {title:"Kate",text:"is my cat"}
+        ]
+        for (var card of cardData){
+            appendCard(card.title,card.text)
+        }
+    </script>
+</body>
+
+</html>

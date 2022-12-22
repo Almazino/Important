@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            margin: 5px;
+            width: 5%;
+            height: 50px;
+            text-align: center;
+            font-size: 25px;
+        }
+    </style>
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <script>
+        var col = 0;
+        var hist = 0;
+        function randomNumber() {
+            for (var box of boxes) {
+                col+=1;
+                box.addEventListener("click", function (event) {
+                    var number = getRandomInt(3);
+                    console.log(col)
+                    event.target.innerHTML = number;
+                    event.target.style.color = "white";
+                })
+            }
+        }
+        for (var x = 0; x < 1000; x++) {
+            var bgColor = `background-color: black;`;
+            var div = `<div class="box" style="${bgColor}"></div>`;
+            document.body.innerHTML += div;
+        }
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
+
+        var boxes = document.getElementsByClassName("box");
+        var colorh = bgColor;
+        randomNumber()
+    </script>
+</body>
+
+</html>

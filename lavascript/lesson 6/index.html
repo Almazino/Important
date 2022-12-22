@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .intro {
+            width: 60%;
+            height: 100px;
+        }
+        .tim {
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="intro">
+        <input type="number" id="hour" class="tim">
+        <span>hours</span>
+        <input type="number" id="minut" class="tim">
+        <span>minuts</span>
+        <input type="number" id="second" class="tim">
+        <span>seconds</span>
+        <br>
+        <button id="start">start</button>
+        <button id="stop">stop</button>
+    </div>
+    <script>
+        var hour=document.getElementById("hour");
+        var start=document.getElementById("start");
+        start.addEventListener("click",function(){
+            console.log(hour)
+        })
+    </script>
+</body>
+</html>
